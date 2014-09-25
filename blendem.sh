@@ -7,7 +7,7 @@ blender_test=~/Dropbox/blend_folder/blender_running.txt
 
 #check if there is are '.blend' files to render. Terminate if false.
 if [-f $job_test]
-
+then
 #check if there is an instance of 'Blender' already running. Terminate if true.
   if [-f $blender_test]
   then
