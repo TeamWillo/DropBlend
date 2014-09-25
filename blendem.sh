@@ -11,12 +11,12 @@ if [-f $job_test]
 #check if there is an instance of 'Blender' already running. Terminate if true.
   if [-f $blender_test]
   then
-    echo "A previous instance of Blender is still running."
+    echo "$(date) A previous instance of Blender is still running." >> ~/Dropbox/blend_folder/log.txt
     exit 0
 # If there is no previous instance then proceed to render process.
   else
 #Create the control file for 'Blender' test.
-    echo "Blender is running" > ~/Dropbox/blend_folder/blender_running.txt
+echo "$(date) Blender is running" > ~/Dropbox/blend_folder/blender_running.txt
 #Loop through all '.blend' files within 'blend_folder' and run 'Blender' CLI on
 #each file name, creating a folder derived from it's filename to store the
 #(JPEG) output (F)ormat using 'CYCLES' render (E)ngine from (s)tarts at frame
@@ -35,5 +35,5 @@ if [-f $job_test]
     rm ~/Dropbox/blend_folder/blender_running.txt
   fi
 fi
-echo "No blender files to render"
+echo "$(date) No blender files to render" >> ~/Dropbox/blend_folder/log.txt
 exit 0
