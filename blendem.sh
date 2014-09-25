@@ -2,14 +2,10 @@
 
 #This script tests if there is any '.blend' files in the Dropbox folder renders
 #them while keeping only one 'Blender' instance active at a time.
-job_test=~/Dropbox/blend_folder/*.blend
 blender_test=~/Dropbox/blend_folder/blender_running.txt
 
-#check if there is are '.blend' files to render. Terminate if false.
-if [-f $job_test]
-then
 #check if there is an instance of 'Blender' already running. Terminate if true.
-  if [-f $blender_test]
+  if [ -f $blender_test ]
   then
     echo "$(date) A previous instance of Blender is still running." >> ~/Dropbox/blend_folder/log.txt
     exit 0
@@ -34,6 +30,6 @@ echo "$(date) Blender is running" > ~/Dropbox/blend_folder/blender_running.txt
     mv ~/Dropbox/blend_folder/*.blend $dir_comp
     rm ~/Dropbox/blend_folder/blender_running.txt
   fi
-fi
+#check if there is are '.blend' files to render. Terminate if false.
 echo "$(date) No blender files to render" >> ~/Dropbox/blend_folder/log.txt
 exit 0
