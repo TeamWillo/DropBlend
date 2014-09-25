@@ -30,6 +30,6 @@ echo "$(date) Blender is running" > ~/Dropbox/blend_folder/blender_running.txt
     mv ~/Dropbox/blend_folder/*.blend $dir_comp
     rm ~/Dropbox/blend_folder/blender_running.txt
   fi
-#check if there is are '.blend' files to render. Terminate if false.
+#Terminate if no blender files.
 echo "$(date) No blender files to render" >> ~/Dropbox/blend_folder/log.txt
 exit 0
