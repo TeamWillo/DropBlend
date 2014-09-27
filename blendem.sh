@@ -16,11 +16,13 @@ echo "$(date) Blender is running" > ~/Dropbox/blend_folder/blender_running.txt
 #Loop through all '.blend' files within 'blend_folder' and run 'Blender' CLI on
 #each file name, creating a folder derived from it's filename to store the
 #(JPEG) output (F)ormat using 'CYCLES' render (E)ngine from (s)tarts at frame
-#(1) and (e)nds on frame (60).
+#(1) and (e)nds on frame (60). Contents of the 3DRotation template is copied to
+#the 3D Rotation output folder
     for i in `ls ~/Dropbox/blend_folder/*.blend`
     do
       j=${i##*/}
       blender -b $i -o ~/Dropbox/3D-Rotation-${j%%.*}/jpg/#.jpg -E CYCLES -F JPEG -s 1 -e 60 -a
+      cp ~/Dropbox/3D-Rotation-Template/* ~/Dropbox/3D-Rotation-${j%%.*}
     done
 #After all files are finished rendering. They will all be moved to the
 #completed_folder. The control file 'blender_running.txt', is removed from the
