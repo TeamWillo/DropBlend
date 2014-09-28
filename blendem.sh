@@ -31,6 +31,7 @@ echo "$(date) Blender is running" > ~/Dropbox/blend_folder/blender_running.txt
     mkdir -p $dir_comp
     mv ~/Dropbox/blend_folder/*.blend $dir_comp
     rm ~/Dropbox/blend_folder/blender_running.txt
+    tar -zcvf ~/Dropbox/DK_D/3D-Rotations-$(date +%Y-%m-%d).tar.gz ~/Dropbox/3D-Rotation-*/
   fi
 #Terminate if no blender files.
 echo "$(date) No blender files to render" >> ~/Dropbox/blend_folder/log.txt
